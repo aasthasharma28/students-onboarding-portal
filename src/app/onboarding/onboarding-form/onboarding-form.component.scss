@@ -1,0 +1,49 @@
+@import './../../../assets/scss/variables.scss';
+
+.onboarding-form-container {
+    .error-message {
+        color: $color-error;
+        display: inline-block;
+        position: relative;
+        top: $gap-10 + 5;
+    }
+    
+    .onboarding-form-container {
+        border-top: 0;
+        border: 1px solid $color-red;
+        margin-top: $gap-10;
+    }
+    
+    .onboarding-form-text span {
+        color: $color-light-dust;
+        font-weight: bold;
+        font-size: $font-size-18;
+    }
+    
+    .documents-fields {
+        text-transform: capitalize
+    }
+
+    .documents-fields + .documents-fields {
+        margin-top: $gap-10;
+    }
+
+    /deep/ {
+        .ui-widget:disabled, /deep/ .ui-state-disabled {
+            opacity: 0.5 !important;
+        }
+        
+        .ui-dropdown {
+            width: 100%;
+        } 
+        
+        .ui-calendar .ui-inputtext {
+            width: calc(100% - 2em) !important;
+        }
+        
+        .ui-calendar {
+            width: 100%;
+        }
+    }
+}
+    

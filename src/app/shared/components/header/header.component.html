@@ -1,0 +1,26 @@
+<header id="header" class="header">
+    <div class="headerbar mg-b-10">
+      <div class="text-center pull-left">
+        <span>
+          <span class="hidden-xs font-size-20">
+            On Boarding App
+          </span>
+        </span>    
+      </div>
+      <div class=" col-sm-10 kill-padding pull-right">
+        <a [pTooltip]="loggedInUserName" tooltipPosition="bottom" [ngClass]="{'user-name-highlighted': isUserNameHighlighted}" class="user-profile user-name pull-right header-right logged-in-username" (click)="onUserNameClick($event, menu)">
+          <span class="user-profile">
+            <i class="fa fa-user user-icon user-profile"></i>
+            <span class="user-full-name user-profile">{{loggedInUserName}} </span>
+            <i class="fa fal fa-angle-down user-profile angle-down-icon"></i>
+          </span>
+        </a>
+        <span class="company-logo">
+          <img src="/assets/images/company-logo.png" />
+        </span>
+        <p-menu #menu [model]="menus" [popup]="true" appendTo="body"></p-menu>
+      </div>
+  
+    </div>
+  </header>
+  

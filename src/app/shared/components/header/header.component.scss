@@ -1,0 +1,49 @@
+@import './../../../../assets/scss/variables.scss';
+
+.headerbar {
+    overflow: hidden;
+}
+
+.header li {
+    list-style-type: none
+}
+
+.user-name-highlighted {
+    background-color: $color-lightblue !important;
+}
+
+.user-icon.user-profile {
+    font-size: $font-size-25;
+    margin-right: $gap-8;
+}
+
+.user-full-name.user-profile {
+    font-size: $font-size-20;
+}
+
+.headerbar {
+    background: $color-darkblue;
+    padding: $gap-8 * 2 $gap-8 * 4;
+    color: $color-black;
+}
+
+.headerbar {
+    background: linear-gradient($color-light-blue, $color-dark-blue);
+    transition: all 0.45s;
+    &:hover{
+      background: linear-gradient($color-green, $color-yellow)
+    }
+}
+
+.company-logo {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    top: $gap-10; 
+    right: 5%;
+}
+
+.company-logo img {
+    height: $gap-10 * 3;
+}

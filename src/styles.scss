@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/scss/variables.scss';
+
+
+html, body { 
+    height: 100%; 
+}
+body { 
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+.mg-b-10 {
+    margin-bottom: $gap-10 !important;
+}
+.mg-b-30 {
+    margin-bottom: $gap-10 * 3 !important;
+}
+.mg-t-10 {
+    margin-top: $gap-10 !important;
+}
+.width-100 {
+    width: 100%
+}
+
+.font-size-20 {
+    font-size: $font-size-20;
+}
+.clrwh {
+    clear: both;
+    overflow: hidden;
+}
+.checkboxPosition {
+    padding-right: $gap-10 * 2; 
+    position: relative; 
+    top: -1px;
+}
+.mg-l {
+    margin-left : $gap-8;
+}

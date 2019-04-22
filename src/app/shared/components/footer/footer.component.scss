@@ -1,0 +1,62 @@
+@import './../../../../assets/scss/variables.scss';
+
+p {
+    position: absolute;
+    right: 2.5%;
+    font-size: $font-size-20;
+    font-weight: bold;
+    margin: $gap-10 0;
+}
+
+.social-links>a {
+    background: url('https://img.etimg.com/photo/65289395.cms') no-repeat;
+    width: 41px;
+    height: 41px;
+    display: block;
+    margin-bottom: $gap-8;
+}
+
+.social-links a {
+    float: left;
+    margin-right: $gap-10;
+}
+
+#share-horz .social-links>a {
+    display: inline-block;
+    margin: 0 $gap-10 0 0
+}
+
+#share-horz .social-links>a:last-child,.social-links>a:last-child {
+    margin: 0
+}
+
+.social-links>a.fb {
+    background-position: 0 0
+}
+
+.social-links>a.twt {
+    background-position: 0 -44px
+}
+
+.social-links>a.in {
+    background-position: 0 -179px
+}
+
+.social-links>a.wa {
+    background-position: -1px -625px
+}
+
+.social-links>a.gp {
+    background-position: 0 -88px
+}
+
+.follow-us {
+    font-size: $font-size-20;
+    font-weight: bold;
+    margin: $gap-10 0;
+}
+
+.follow-container {
+    position: absolute;
+    left: 2.5%;
+}

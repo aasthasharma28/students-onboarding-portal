@@ -1,0 +1,128 @@
+
+@import './../../assets/scss/variables.scss';
+
+.gradient {
+  background-image: linear-gradient(-180deg, #41CCFD 0%, #003069 99%); // No need to move to variables as used only once
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  top: 180px;
+  background: white;
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: $gap-10 * 2 $gap-10 * 4 $gap-10 * 4;
+
+  .form-group {
+    margin-bottom: 0 !important;
+    width: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    height: 25px;
+    width: 103px;
+    margin-bottom: $gap-10 * 5;
+  }
+  
+  .icon-spacing {
+    padding: $gap-8;
+  }
+  
+  .username {
+    height: 11px;
+    width: 11px;
+    vertical-align: baseline;
+    background: url('./../../assets/icons/username.svg') no-repeat center;
+    background-size: contain;
+    margin: $gap-10 0 0 $gap-6;
+  }
+  
+  .form-group input:focus {
+      width: 250px;
+      transition: 1.5s;
+  }
+  
+  button {
+    width: 100%;
+  }
+
+  .password {
+    height: 11px;
+    width: 11px;
+    vertical-align: baseline;
+    background: url('./../../assets/icons/password.svg') no-repeat center;
+    background-size: contain;
+    margin: $gap-10 0 0 $gap-6;
+  }
+  
+  .login-label {
+    margin-top: $gap-8;
+  }
+  
+  
+  .remember-me-container {
+    padding-left: 33px !important;
+  }
+  
+  
+  .login {
+    padding-left: $gap-10 * 3;
+    padding-right: $gap-10 * 3;
+  }
+  
+  .username-input input{
+    text-transform: lowercase;
+  }
+  
+  .inner-addon .fa {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    padding-top: $gap-10;
+    padding-right: $gap-10;
+    right: 0;
+  }
+  
+  .form-control-without-border {
+    padding-left: $gap-8 !important;
+    padding: $gap-8;
+    border-top: 1px;
+    border-left: 1px;
+    border-right: 1px;
+    border-style: solid;
+    border-color: $color-blue;
+    background: white;
+    height: 34px;
+    outline: none;
+    border-bottom-width: 1px !important;
+    border-bottom-color: $color-gray !important;
+    width: 100%;
+    border-top-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+  }
+  
+  
+  .error-message {
+    color: #E23B3B;
+  }
+  
+  .error-highlight {
+    border-bottom-color: #E23B3B !important;
+  }
+
+  .inner-addon {
+    position: relative;
+  }
+  
+}
+
+
+
+

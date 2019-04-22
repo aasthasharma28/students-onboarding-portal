@@ -1,0 +1,115 @@
+<div class="onboarding-form-container">
+  <form [formGroup]="onBoardingForm" (ngSubmit)="onBoardStudent(onBoardingForm)">
+    <div class="form-horizontal">
+      <div class="text-center onboarding-form-text mg-t-10">
+        <span>
+          Onboarding Form <span *ngIf="isEdit">(Edit)</span><span *ngIf="isView">(View)</span>
+        </span>
+      </div>
+      <div class="ui-g">
+        <div class="ui-g-12 ui-sm-12 ui-md-12">
+          <div class="ui-g-12 ui-sm-12 ui-md-12">
+            <div class="form-group">
+              <label class="ui-g-12 ui-sm-12 ui-md-4 ui-lg-4 control-label">Student Name*</label>
+              <div class="ui-g-12  ui-md-3">
+                <input type="text" class="form-control" placeholder="Name" pInputText formControlName="name">
+              </div>
+              <span class="error-message"
+                *ngIf="(formControls['name'].dirty || formControls['name'].touched) && formControls['name'].invalid && formControls['name'].errors.required">
+                Student Name is required
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-sm-12 ui-md-12">
+          <div class="ui-g-12 ui-sm-12 ui-md-12">
+            <div class="form-group">
+              <label class="ui-g-12 ui-sm-12 ui-md-4 ui-lg-4 control-label">Category*</label>
+              <div class="ui-g-12  ui-md-3">
+                <p-dropdown [options]="categories" placeholder="Category" formControlName="category"
+                  (onChange)="onCategoryChange($event.value)"></p-dropdown>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-sm-12 ui-md-12">
+          <div class="form-group">
+            <label class="ui-g-12 ui-sm-12 ui-md-4 ui-lg-4 mg-l control-label pull-left">Documents*</label>
+            <div class="ui-g-12 ui-sm-12 ui-md-7 ui-lg-3">
+              <div class="documents-fields" *ngFor="let document of documentsRequired">
+                <span>{{document.label}}</span><span *ngIf="document.isMandatory">*</span>
+                <p-checkbox class="pull-left checkboxPosition" name="documents" value="{{document.label}}" (onChange)="onDocumentSelectDeSelect(document, $event)"
+                  [formControl]="onBoardingForm.controls['documents']"></p-checkbox>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-sm-12 ui-md-12">
+          <div class="ui-g-12 ui-sm-12 ui-md-12">
+            <div class="form-group">
+              <label class="ui-g-12 ui-sm-12 ui-md-4 ui-lg-4 control-label">DOB*</label>
+              <div class="ui-g-12  ui-md-3">
+                <p-calendar icon="fa fa-calendar" showIcon="true" formControlName="dob" dateFormat="yy-mm-dd"
+                  placeholder="DOB"></p-calendar>
+              </div>
+              <span class="error-message" *ngIf="(formControls['dob'].dirty || formControls['dob'].touched) && formControls['dob'].invalid && formControls['dob'].errors.required">
+                  Date of Birth is required
+                </span>
+            </div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-sm-12 ui-md-12">
+          <div class="ui-g-12 ui-sm-12 ui-md-12">
+            <div class="form-group">
+              <label class="ui-g-12 ui-sm-12 ui-md-4 ui-lg-4 control-label">Fathers's Name*</label>
+              <div class="ui-g-12  ui-md-3">
+                <input type="text" class="form-control" pInputText formControlName="fatherName"
+                  placeholder="Father's Name">
+              </div>
+              <span class="error-message"
+                *ngIf="(formControls['fatherName'].dirty || formControls['fatherName'].touched) && formControls['fatherName'].invalid && formControls['fatherName'].errors.required">
+                Father's Name is required
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-sm-12 ui-md-12">
+          <div class="ui-g-12 ui-sm-12 ui-md-12">
+            <div class="form-group">
+              <label class="ui-g-12 ui-sm-12 ui-md-4 ui-lg-4 control-label">Mother's Name*</label>
+              <div class="ui-g-12  ui-md-3">
+                <input type="text" class="form-control" pInputText formControlName="motherName"
+                  placeholder="Mother's Name">
+              </div>
+              <span class="error-message"
+                *ngIf="(formControls['motherName'].dirty || formControls['motherName'].touched) && formControls['motherName'].invalid && formControls['motherName'].errors.required">
+                Mother's Name is required
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-sm-12 ui-md-12">
+          <div class="ui-g-12 ui-sm-12 ui-md-12">
+            <div class="form-group">
+              <label class="ui-g-12 ui-sm-12 ui-md-4 ui-lg-4 control-label">Last class score*</label>
+              <div class="ui-g-12  ui-md-3">
+                <input type="number" class="form-control" pInputText formControlName="lastClassScore"
+                  placeholder="% Marks">
+              </div>
+              <span class="error-message"
+                *ngIf="(formControls['lastClassScore'].dirty || formControls['lastClassScore'].touched) && formControls['lastClassScore'].invalid && formControls['lastClassScore'].errors.required">
+                Last Class Score is required
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <button pButton class="btn-lg width-100 ui-button-raised" *ngIf="!isEdit" [disabled]="(isView || onBoardingForm.invalid || !areAllMandatoryDocumentsChecked)"
+        type="submit" label="OnBoard"></button>
+      <button *ngIf="isEdit" type="submit" pButton class="ui-button-raised btn-lg width-100"
+        [disabled]="onBoardingForm.invalid  || !areAllMandatoryDocumentsChecked" label="Update Student Details"></button>
+    </div>
+  </form>
+</div>

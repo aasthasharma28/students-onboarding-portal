@@ -1,0 +1,77 @@
+@import './../../../assets/scss/variables.scss';
+
+
+.students-listing-container {
+    /deep/ .domestic-category .ui-card-shadow {
+        background: $color-sky-blue !important;
+    }
+    
+    /deep/ .international-category .ui-card-shadow {
+        background: $color-light-yellow !important;
+    }
+    
+    .ui-button-secondary + .ui-button-secondary {
+        margin-right: $gap-10;
+    }
+    
+    /deep/  .ui-card-body {
+        clear: both; overflow: hidden;
+    }
+    .student-list-container {    
+        width: 40%;
+        float: left;
+        margin-bottom: $gap-10;
+    }
+    .student-list-container + .student-list-container {
+        float: right;
+    }
+    .student-list-container:nth-child(2n+1) {
+        margin-right: $gap-10 + 5;
+        float: left !important;
+    }
+    /deep/ .ui-card-shadow {
+        border-radius: $gap-10 * 2 !important;
+    }
+    
+    /deep/ .ui-confirmdialog.ui-dialog .ui-dialog-content {
+        padding: 1em 0;
+        text-align: center;
+        font-size: $font-size-20;
+        font-weight: bold;
+    }
+    
+    .edit-button {
+        background: $color-light-green !important
+    }
+
+    .view-button {
+        background: $color-gray !important
+    }
+
+    .delete-button {
+        background: $color-dark-red !important
+    }
+    
+    .search-box {
+        position: relative;
+    }
+    .search-box input {
+        width: 200px;
+        padding-left: $gap-6 - 1;
+    }
+    .search-icon {
+        position: absolute;
+        right: $gap-6;
+        top: $gap-6 - 1;
+    }
+    
+    .no-results-msg {
+        padding: $gap-10 * 3 0;
+        font-size: $font-size-20;
+        font-weight: 500;
+    }
+    
+    .student-details-label {
+        font-weight: 500;
+    }
+}

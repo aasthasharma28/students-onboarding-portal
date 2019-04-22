@@ -1,0 +1,55 @@
+<div class="mg-t-10 students-listing-container">
+    <div>
+        <p-dropdown [options]="categories" name="category" [(ngModel)]="selectedCategory"
+        (onChange)="onCategoryChange($event.value)"></p-dropdown>
+        <span class="search-box pull-right">
+            <i class="fa fa-search search-icon"></i>
+            <input #searchBox id="search-box" placeholder="Search Student" (keyup)="search(searchBox.value)" />
+        </span>
+    </div>
+    <div class="mg-t-10 clrwh" *ngIf="students?.length; else noRecords">
+        <div class="student-list-container" *ngFor="let student of students">
+            <p-card header="{{student.name}}" styleClass="ui-card-shadow"
+                [ngClass]="{'domestic-category': student.category === 'domestic', 'international-category': student.category === 'international'}">
+                <div>
+                    <div>
+                        <span>-</span> <label class="student-details-label">Category: </label> <span> {{student.category}}</span>
+                    </div>
+                    <div>
+                        <span>-</span> <label class="student-details-label">DOB: </label><span> {{student.dob}}</span>
+                    </div>
+                    <div>
+                        <span>-</span> <label class="student-details-label">Father's Name: </label><span> {{student.fatherName}}</span>
+                    </div>
+                    <div>
+                        <span>-</span> <label class="student-details-label">Mother's Name: </label><span> {{student.motherName}}</span>
+                    </div>
+                    <div>
+                        <span>-</span> <label class="student-details-label">Last class score: </label><span> {{student.lastClassScore}}</span>
+                    </div>
+
+                    <p-footer>
+
+                        <button pButton type="button" label="Delete" icon="fa fa-trash" iconPos="left"
+                            class="ui-button-secondary delete-button pull-right btn btn-danger"
+                            (click)="deleteStudent(student.id)"></button>
+                        <button pButton type="button" label="View" icon="fa fa-eye" iconPos="left"
+                            class="ui-button-secondary view-button pull-right"
+                            [routerLink]="['/dashboard/onboardingForm']"
+                            [queryParams]="{ id: student.id, isView: true }"></button>
+                        <button pButton type="button" label="Edit" icon="fa fa-edit" iconPos="left"
+                            class="ui-button-secondary edit-button pull-right btn btn-success"
+                            [routerLink]="['/dashboard/onboardingForm']"
+                            [queryParams]="{ id: student.id, isEdit: true }"></button>
+                    </p-footer>
+                </div>
+            </p-card>
+        </div>
+    </div>
+    <ng-template #noRecords><div class="no-results-msg">
+        No results found matching your search
+    </div></ng-template>
+
+</div>
+
+    <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

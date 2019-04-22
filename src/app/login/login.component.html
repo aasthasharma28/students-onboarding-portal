@@ -1,0 +1,48 @@
+<div class="col-sm-12 gradient">
+  <div class="ui-g-4 center-block login-container">
+    <h2 class="text-center mg-b-30">Login School Admin</h2>
+    <div class="mg-b-10"></div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-group row">
+        <i class="username pull-left"></i>
+        <label for="username" class="ui-g-3 kill-padding col-form-label login-label">Username*</label>
+        <div class="ui-g-8 username-input">
+          <input formControlName="userName" autofocus type="text"
+            [ngClass]="{'error-highlight': formControls['userName'].touched && formControls['userName'].invalid && formControls['userName'].errors.required}"
+            placeholder="Username" class="form-control-without-border" />
+          <span class="error-message"
+            *ngIf="formControls['userName'].touched && formControls['userName'].invalid && formControls['userName'].errors.required">Username
+            is required</span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <i class="password pull-left"></i>
+        <label for="password" class="ui-g-3 kill-padding col-form-label login-label">Password*</label>
+        <div class="ui-g-8 inner-addon right-addon">
+          <i class="fa fa-eye" aria-hidden="true" #eyeIcon (click)="showHidePassword(passwordField, eyeIcon)"></i>
+          <input #passwordField formControlName="password" type="password"
+            [ngClass]="{'error-highlight': (formControls['password'].touched) && formControls['password'].invalid && formControls['password'].errors.required}"
+            placeholder="Password" class="form-control-without-border" required />
+          <span class="error-message"
+            *ngIf="(formControls['password'].touched) && formControls['password'].invalid && formControls['password'].errors.required">Password
+            is required</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="ui-g-3 kill-padding col-form-label login-label"></label>
+        <div class="ui-g-8 username-input">
+          <span class="error-message" *ngIf="isIncorrectCredential">Incorrect Username or Password</span>
+        </div>
+      </div>
+      <div class="form-group row ui-g-12">
+        <div class="ui-g-12">
+          <button pButton type="submit" icon="fa fa-sign-in" iconPos="right" label="LOGIN"
+            [disabled]="loginForm.invalid"></button>
+          <div class="mg-b-10"></div>
+          <button pButton type="reset" icon="fa fa-refresh" iconPos="right" label="RESET"></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
