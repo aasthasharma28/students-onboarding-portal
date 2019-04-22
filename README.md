@@ -33,3 +33,7 @@ We've used the in memory web api to create a fake backend for this project
 npm start -> Run dev. server on http://localhost:4200/
 npm run build -> Lint code and build app for production in dist folder 
 npm run lint -> Lint code
+
+
+
+Github page URL: https://aasthasharma28.github.io/students-onboarding-portal/
